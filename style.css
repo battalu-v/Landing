@@ -5,23 +5,24 @@
 
 /* --- Design Tokens & Variables --- */
 :root {
-  --navy-dark: #0F172A;       /* Base/Text/Dark backgrounds */
-  --navy-medium: #1E293B;     /* Card dark headers / subtext */
-  --sky-blue: #0EA5E9;        /* Primary brand color */
-  --sky-hover: #0284C7;       /* Primary brand hover state */
-  --sky-light: #F0F9FF;       /* Soft light tint for background sections */
-  --accent-orange: #F97316;   /* Main CTA accent */
-  --accent-hover: #EA580C;    /* CTA accent hover state */
-  --white: #FFFFFF;
-  --gray-light: #F8FAFC;      /* Light background alternates */
-  --gray-border: #E2E8F0;     /* Borders */
-  --gray-text: #64748B;       /* Secondary body text */
+  --navy-dark: #2C6E49;       /* Dark Green (Primary Brand) */
+  --navy-medium: #2C6E49;     /* Dark Green */
+  --sky-blue: #2C6E49;        /* Dark Green (Primary Brand) */
+  --sky-hover: #4C956C;       /* Medium Green (Secondary / Hover) */
+  --sky-light: #FFC9B9;       /* Soft Peach (Accent) */
+  --accent-orange: #D68C45;   /* Warm Orange (CTA) */
+  --accent-hover: #b87332;    /* Warm Orange Hover */
+  --white: #FFFFFF;           /* White */
+  --gray-light: #FEFEE3;      /* Cream (Main Background) */
+  --gray-soft: #FFC9B9;       /* Soft Peach */
+  --gray-border: #d2dbcb;     /* Harmonious light border */
+  --gray-text: #2C6E49;       /* Dark Green text */
   --font-sans: 'Inter', sans-serif;
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(44, 110, 73, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(44, 110, 73, 0.1), 0 2px 4px -2px rgba(44, 110, 73, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(44, 110, 73, 0.1), 0 4px 6px -4px rgba(44, 110, 73, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(44, 110, 73, 0.1), 0 8px 10px -6px rgba(44, 110, 73, 0.1);
   --border-radius: 16px;
   --border-radius-sm: 8px;
 }
@@ -41,7 +42,7 @@ html {
 body {
   font-family: var(--font-sans);
   color: var(--navy-dark);
-  background-color: var(--white);
+  background-color: var(--gray-light);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -123,13 +124,13 @@ section {
 .btn-primary {
   background-color: var(--accent-orange);
   color: var(--white);
-  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 4px 14px rgba(214, 140, 69, 0.4);
 }
 
 .btn-primary:hover {
   background-color: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
+  box-shadow: 0 6px 20px rgba(214, 140, 69, 0.6);
 }
 
 .btn-secondary {
@@ -256,7 +257,7 @@ section {
 .hero {
   padding-top: 140px;
   padding-bottom: 80px;
-  background: linear-gradient(160deg, #EFF8FF 0%, #F8FBFF 55%, #FFFFFF 100%);
+  background: linear-gradient(160deg, var(--gray-light) 0%, var(--gray-soft) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -273,7 +274,7 @@ section {
 .hero-blob-1 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.12), transparent 70%);
+  background: radial-gradient(circle, rgba(76, 149, 108, 0.15), transparent 70%);
   top: -100px;
   right: -80px;
 }
@@ -281,7 +282,7 @@ section {
 .hero-blob-2 {
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.08), transparent 70%);
+  background: radial-gradient(circle, rgba(44, 110, 73, 0.1), transparent 70%);
   bottom: 0;
   left: -60px;
 }
@@ -313,7 +314,7 @@ section {
 
 .hero-title span {
   display: block;
-  background: linear-gradient(to right, var(--sky-blue), #0369A1);
+  background: linear-gradient(to right, var(--sky-blue), var(--sky-hover));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -381,17 +382,17 @@ section {
   border-radius: 9999px;
   border: none;
   cursor: pointer;
-  background: linear-gradient(135deg, var(--sky-blue) 0%, #0369A1 100%);
+  background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-hover) 100%);
   color: var(--white);
   transition: var(--transition-smooth);
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.45);
+  box-shadow: 0 4px 12px rgba(214, 140, 69, 0.4);
   flex-shrink: 0;
 }
 
 .btn-schedule:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.6);
+  box-shadow: 0 6px 20px rgba(214, 140, 69, 0.6);
 }
 
 .pincode-hint {
@@ -535,7 +536,7 @@ section {
 
 /* --- How It Works --- */
 .how-it-works {
-  background-color: var(--white);
+  background-color: var(--gray-light);
 }
 
 .steps-grid {
@@ -549,7 +550,7 @@ section {
   text-align: center;
   padding: 40px 24px;
   border-radius: var(--border-radius);
-  background-color: var(--gray-soft);
+  background-color: var(--white);
   transition: var(--transition-smooth);
   position: relative;
   z-index: 1;
@@ -713,7 +714,7 @@ section {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(to right, var(--sky-blue), #0369A1);
+  background: linear-gradient(to right, var(--sky-blue), var(--sky-hover));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.35s ease;
@@ -721,8 +722,8 @@ section {
 
 .service-card:hover {
   transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 12px 32px rgba(14, 165, 233, 0.35); /* Subtle blue glow */
-  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow: 0 12px 32px rgba(44, 110, 73, 0.25); /* Subtle green glow */
+  border-color: rgba(44, 110, 73, 0.4);
 }
 
 .service-card:hover::after {
@@ -731,17 +732,17 @@ section {
 
 /* Accent card (Express Laundry) */
 .service-card--accent {
-  border-color: rgba(249, 115, 22, 0.25);
-  background: linear-gradient(160deg, #FFFBF7 0%, #FFFFFF 100%);
+  border-color: rgba(214, 140, 69, 0.25);
+  background: linear-gradient(160deg, var(--gray-soft) 0%, var(--white) 100%);
 }
 
 .service-card--accent::after {
-  background: linear-gradient(to right, var(--accent-orange), #EA580C);
+  background: linear-gradient(to right, var(--accent-orange), var(--accent-hover));
 }
 
 .service-card--accent:hover {
-  box-shadow: 0 12px 32px rgba(249, 115, 22, 0.14);
-  border-color: rgba(249, 115, 22, 0.35);
+  box-shadow: 0 12px 32px rgba(214, 140, 69, 0.14);
+  border-color: rgba(214, 140, 69, 0.35);
 }
 
 /* Icon wrapper — driven by CSS custom props set inline */
@@ -849,7 +850,7 @@ section {
 
 /* --- Pricing Section --- */
 .pricing {
-  background-color: var(--white);
+  background-color: var(--gray-light);
 }
 
 /* Tab switcher */
@@ -906,13 +907,13 @@ section {
   letter-spacing: 0.05em;
   padding: 3px 8px;
   border-radius: 6px;
-  background: rgba(16, 185, 129, 0.12);
-  color: #059669;
+  background: rgba(76, 149, 108, 0.15);
+  color: var(--sky-hover);
 }
 
 .tab-badge--blue {
-  background: rgba(14, 165, 233, 0.12);
-  color: #0284C7;
+  background: rgba(214, 140, 69, 0.15);
+  color: var(--accent-orange);
 }
 
 /* Panels */
@@ -952,7 +953,7 @@ section {
 }
 
 .pricing-table thead {
-  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--sky-hover) 100%);
 }
 
 .pricing-table thead th {
@@ -972,15 +973,15 @@ section {
 }
 
 .pricing-table thead th.col-standard {
-  color: #86EFAC;
+  color: var(--gray-light);
 }
 
 .pricing-table thead th.col-express {
-  color: #FDE68A;
+  color: var(--sky-light);
 }
 
 .pricing-table thead th.col-time {
-  color: #93C5FD;
+  color: var(--white);
 }
 
 .pricing-table tbody tr {
@@ -993,11 +994,11 @@ section {
 }
 
 .pricing-table tbody tr:nth-child(even) {
-  background-color: #F8FAFC;
+  background-color: rgba(254, 254, 227, 0.4);
 }
 
 .pricing-table tbody tr:hover {
-  background-color: rgba(14, 165, 233, 0.04);
+  background-color: rgba(44, 110, 73, 0.05);
 }
 
 .pricing-table tbody td {
@@ -1034,13 +1035,13 @@ section {
 }
 
 .rate-standard {
-  background: rgba(16, 185, 129, 0.1);
-  color: #059669;
+  background: rgba(44, 110, 73, 0.1);
+  color: var(--navy-dark);
 }
 
 .rate-express {
-  background: rgba(249, 115, 22, 0.1);
-  color: #EA580C;
+  background: rgba(214, 140, 69, 0.1);
+  color: var(--accent-orange);
 }
 
 /* Time pill */
@@ -1052,8 +1053,8 @@ section {
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
-  background: rgba(14, 165, 233, 0.08);
-  color: #0284C7;
+  background: rgba(76, 149, 108, 0.12);
+  color: var(--sky-hover);
 }
 
 /* Cashback note */
@@ -1063,8 +1064,8 @@ section {
   gap: 16px;
   margin-top: 32px;
   padding: 20px 28px;
-  background: linear-gradient(135deg, #ECFDF5 0%, #F0FDF4 100%);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: linear-gradient(135deg, var(--gray-light) 0%, var(--gray-soft) 100%);
+  border: 1px solid var(--gray-border);
   border-radius: 14px;
 }
 
@@ -1072,8 +1073,8 @@ section {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(16, 185, 129, 0.15);
-  color: #059669;
+  background: var(--sky-light);
+  color: var(--navy-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1088,7 +1089,7 @@ section {
 }
 
 .pricing-note p strong {
-  color: #059669;
+  color: var(--navy-dark);
 }
 
 
@@ -1172,7 +1173,7 @@ section {
 
 /* --- FAQs --- */
 .faqs {
-  background-color: var(--white);
+  background-color: var(--gray-light);
 }
 
 .faqs-container {
@@ -1390,7 +1391,7 @@ section {
 
 /* --- Footer --- */
 .footer {
-  background-color: #18181B; /* Premium Dark Grey */
+  background-color: var(--navy-dark);
   color: rgba(255, 255, 255, 0.7);
   padding: 80px 24px 40px 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -1597,8 +1598,8 @@ section {
 .success-icon {
   width: 80px;
   height: 80px;
-  background-color: #DCFCE7;
-  color: #16A34A;
+  background-color: rgba(76, 149, 108, 0.15);
+  color: var(--navy-dark);
   border-radius: 50%;
   display: flex;
   align-items: center;
