@@ -1138,7 +1138,10 @@ h1, h2, h3 {
 .review-stars {
   color: #FFC107;
   letter-spacing: 2px;
-  font-size: 0.9rem;
+  font-size: 1.15rem;
+}
+.review-stars .star-empty {
+  color: #D1D5DB;
 }
 .review-text {
   color: var(--text-muted);
