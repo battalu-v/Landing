@@ -11,99 +11,191 @@
 <link rel="stylesheet" href="style.css">
 <style>
   .page-header {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: var(--green-900);
+    color: #fff;
     padding: 120px 20px 60px;
     text-align: center;
   }
   .page-header h1 {
     font-size: 3rem;
     margin-bottom: 16px;
-    color: var(--white);
+    color: #fff;
   }
   .page-header p {
-    color: var(--accent-color);
+    color: var(--lime);
     font-size: 1.2rem;
   }
   .pricing-section {
     padding: 80px 20px;
     background: var(--bg-soft);
   }
-  .pricing-grid {
+  .pricing-controls {
+    max-width: 1100px;
+    margin: -120px auto 40px;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-soft);
+    position: relative;
+    z-index: 10;
+  }
+  .pricing-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .pricing-tab-btn {
+    background: var(--bg-soft);
+    border: 1px solid var(--border-soft);
+    color: var(--text-muted);
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+  }
+  .pricing-tab-btn:hover {
+    color: var(--green-800);
+    border-color: var(--green-500);
+    background: #fff;
+  }
+  .pricing-tab-btn.active {
+    background: linear-gradient(135deg, var(--mint), var(--green-500));
+    color: #fff;
+    border-color: transparent;
+    box-shadow: var(--shadow-sm);
+  }
+  .delivery-notice-banner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    background: linear-gradient(135deg, var(--green-100), var(--bg-soft));
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 20px 30px;
+    box-shadow: var(--shadow-sm);
+  }
+  .banner-icon {
+    font-size: 2.5rem;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .banner-text h3 {
+    font-size: 1.25rem;
+    color: var(--green-900);
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .banner-text p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+  @media (max-width: 600px) {
+    .delivery-notice-banner {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+  }
+  .detailed-pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
     max-width: 1100px;
     margin: 0 auto;
   }
-  .pricing-card {
+  @media (max-width: 900px) {
+    .detailed-pricing-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .pricing-category-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .pricing-card-detailed {
     background: var(--bg-card);
     border-radius: var(--radius-md);
-    padding: 40px 30px;
+    padding: 30px 24px;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-soft);
-    position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  .pricing-card:hover {
-    transform: translateY(-5px);
+  .pricing-card-detailed:hover {
+    transform: translateY(-2px);
     box-shadow: var(--shadow-md);
   }
-  .pricing-card.featured {
-    border: 2px solid var(--green-500);
-    box-shadow: var(--shadow-md);
+  .category-header {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--green-500);
   }
-  .pricing-card.featured .popular-badge {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--green-500);
-    color: #fff;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  .category-header h2 {
+    font-size: 1.6rem;
+    color: var(--green-900);
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-  .pricing-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
+  .pricing-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
-  .pricing-card .delivery-time {
-    color: var(--text-muted);
-    font-size: 1rem;
-    margin-bottom: 24px;
-    display: block;
-  }
-  .service-list {
-    margin-top: 24px;
-    border-top: 1px solid var(--border-soft);
-    padding-top: 24px;
-  }
-  .service-item {
+  .pricing-item-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px dashed var(--border-soft);
+    padding: 12px 10px;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.2s ease;
   }
-  .service-item:last-child {
-    border-bottom: none;
+  .pricing-item-row:hover {
+    background-color: var(--bg-soft);
   }
-  .service-name {
+  .pricing-item-row:nth-child(even) {
+    background-color: rgba(244, 251, 246, 0.4);
+  }
+  .pricing-item-row:nth-child(even):hover {
+    background-color: var(--bg-soft);
+  }
+  .pricing-item-name {
     font-weight: 500;
     color: var(--text-dark);
+    font-size: 0.98rem;
   }
-  .service-price {
+  .pricing-item-price {
     font-weight: 700;
     color: var(--green-900);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
-  .card-cta {
-    margin-top: 30px;
+  .no-results-card {
+    text-align: center;
+    padding: 40px;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px dashed var(--border-soft);
+    grid-column: 1 / -1;
+    max-width: 1100px;
+    margin: 0 auto;
     width: 100%;
+  }
+  .no-results-card p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
   }
 </style>
   <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -140,116 +232,225 @@
   <section class="page-header">
     <div class="container">
       <h1>Transparent Pricing</h1>
-      <p>Choose your preferred delivery speed. Prices are per piece.</p>
+      <p>Simple, clear, per-piece laundry & dry cleaning prices in Vizag.</p>
     </div>
   </section>
 
   <section class="pricing-section">
-    <div class="pricing-grid">
-      
-      <!-- Relaxed Delivery -->
-      <div class="pricing-card">
-        <h3>Relaxed</h3>
-        <span class="delivery-time">Take it easy & save money</span>
-        <a href="https://app.battalu.in" class="btn btn-outline card-cta">Book Relaxed</a>
-        
-        <div class="service-list">
-          <div class="service-item">
-            <span class="service-name">Only Iron</span>
-            <span class="service-price">₹10</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Wash + Fold</span>
-            <span class="service-price">₹15</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Wash + Iron</span>
-            <span class="service-price">₹25</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Starch Wash</span>
-            <span class="service-price">₹30</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Dry Cleaning</span>
-            <span class="service-price">₹70</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Saree Rolling</span>
-            <span class="service-price">₹80</span>
-          </div>
+    <div class="container">
+      <!-- Filter controls -->
+      <div class="pricing-controls">
+        <div class="pricing-tabs">
+          <button class="pricing-tab-btn active" data-category="all">All Items</button>
+          <button class="pricing-tab-btn" data-category="womens">Women's Wear</button>
+          <button class="pricing-tab-btn" data-category="mens">Men's Wear</button>
+          <button class="pricing-tab-btn" data-category="kids">Kids Wear</button>
+          <button class="pricing-tab-btn" data-category="home">Home Care</button>
         </div>
       </div>
 
-      <!-- Standard Delivery -->
-      <div class="pricing-card featured">
-        <span class="popular-badge">Most Popular</span>
-        <h3>Standard</h3>
-        <span class="delivery-time">Regular turnaround time</span>
-        <a href="https://app.battalu.in" class="btn btn-primary card-cta">Book Standard</a>
-        
-        <div class="service-list">
-          <div class="service-item">
-            <span class="service-name">Only Iron</span>
-            <span class="service-price">₹15</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Wash + Fold</span>
-            <span class="service-price">₹20</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Wash + Iron</span>
-            <span class="service-price">₹35</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Starch Wash</span>
-            <span class="service-price">₹40</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Dry Cleaning</span>
-            <span class="service-price">₹80</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Saree Rolling</span>
-            <span class="service-price">₹100</span>
-          </div>
+      <!-- Doorstep Pickup & Delivery Notice Banner -->
+      <div class="delivery-notice-banner">
+        <div class="banner-icon">🛵</div>
+        <div class="banner-text">
+          <h3>Doorstep Pickup & Delivery Available</h3>
+          <p>Schedule a pickup from the comfort of your home. Serving Madhurawada, Kommadi, Yendada, Rushikonda & nearby areas.</p>
         </div>
       </div>
 
-      <!-- Express Delivery -->
-      <div class="pricing-card">
-        <h3>Express</h3>
-        <span class="delivery-time">Quick turnaround for emergencies</span>
-        <a href="https://app.battalu.in" class="btn btn-outline card-cta">Book Express</a>
-        
-        <div class="service-list">
-          <div class="service-item">
-            <span class="service-name">Only Iron</span>
-            <span class="service-price">₹25</span>
+      <!-- Pricing Lists Grid -->
+      <div class="detailed-pricing-grid" id="pricingGrid">
+        <!-- Left Column: Women's Wear & Home Care -->
+        <div class="pricing-category-column" id="leftPricingCol">
+          <!-- Women's Wear Card -->
+          <div class="pricing-card-detailed" data-category="womens">
+            <div class="category-header">
+              <h2>Women's Wear</h2>
+            </div>
+            <div class="pricing-items-list">
+              <div class="pricing-item-row" data-search="iron only no wash no starch">
+                <span class="pricing-item-name">• Iron Only (No Wash, No Starch)</span>
+                <span class="pricing-item-price">₹10</span>
+              </div>
+              <div class="pricing-item-row" data-search="steam iron only no wash no starch">
+                <span class="pricing-item-name">• Steam Iron Only (No Wash, No Starch)</span>
+                <span class="pricing-item-price">₹15</span>
+              </div>
+              <div class="pricing-item-row" data-search="plain blouse dry wash">
+                <span class="pricing-item-name">• Plain Blouse Dry Wash</span>
+                <span class="pricing-item-price">₹25</span>
+              </div>
+              <div class="pricing-item-row" data-search="work blouse dry wash">
+                <span class="pricing-item-name">• Work Blouse Dry Wash</span>
+                <span class="pricing-item-price">₹45</span>
+              </div>
+              <div class="pricing-item-row" data-search="saree rolling">
+                <span class="pricing-item-name">• Saree Rolling</span>
+                <span class="pricing-item-price">₹75</span>
+              </div>
+              <div class="pricing-item-row" data-search="cotton saree wash starch rolling">
+                <span class="pricing-item-name">• Cotton Saree Wash + Starch + Rolling</span>
+                <span class="pricing-item-price">₹115</span>
+              </div>
+              <div class="pricing-item-row" data-search="fancy pattu saree dry wash">
+                <span class="pricing-item-name">• Fancy / Pattu Saree Dry Wash</span>
+                <span class="pricing-item-price">₹135</span>
+              </div>
+              <div class="pricing-item-row" data-search="pure silk saree dry wash">
+                <span class="pricing-item-name">• Pure Silk Saree Dry Wash</span>
+                <span class="pricing-item-price">₹175</span>
+              </div>
+              <div class="pricing-item-row" data-search="kurti wash starch iron">
+                <span class="pricing-item-name">• Kurti Wash + Starch + Iron</span>
+                <span class="pricing-item-price">₹35</span>
+              </div>
+              <div class="pricing-item-row" data-search="palazzo pant wash starch iron">
+                <span class="pricing-item-name">• Palazzo / Pant Wash + Starch + Iron</span>
+                <span class="pricing-item-price">₹30</span>
+              </div>
+              <div class="pricing-item-row" data-search="dupatta chunni wash starch iron">
+                <span class="pricing-item-name">• Dupatta / Chunni Wash + Starch + Iron</span>
+                <span class="pricing-item-price">₹25</span>
+              </div>
+              <div class="pricing-item-row" data-search="pattu langa chunni blouse dry wash">
+                <span class="pricing-item-name">• Pattu Langa + Chunni + Blouse Dry Wash</span>
+                <span class="pricing-item-price">₹150</span>
+              </div>
+              <div class="pricing-item-row" data-search="lehenga dry wash">
+                <span class="pricing-item-name">• Lehenga Dry Wash</span>
+                <span class="pricing-item-price">₹350</span>
+              </div>
+            </div>
           </div>
-          <div class="service-item">
-            <span class="service-name">Wash + Fold</span>
-            <span class="service-price">₹30</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Wash + Iron</span>
-            <span class="service-price">₹50</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Starch Wash</span>
-            <span class="service-price">₹60</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Dry Cleaning</span>
-            <span class="service-price">₹120</span>
-          </div>
-          <div class="service-item">
-            <span class="service-name">Saree Rolling</span>
-            <span class="service-price">₹150</span>
+
+          <!-- Kids Wear Card -->
+          <div class="pricing-card-detailed" data-category="kids">
+            <div class="category-header">
+              <h2>Kids Wear</h2>
+            </div>
+            <div class="pricing-items-list">
+              <div class="pricing-item-row" data-search="kids wear iron">
+                <span class="pricing-item-name">• Kids wear Iron</span>
+                <span class="pricing-item-price">₹8</span>
+              </div>
+              <div class="pricing-item-row" data-search="kids wear steam iron">
+                <span class="pricing-item-name">• Kids wear steam iron</span>
+                <span class="pricing-item-price">₹12</span>
+              </div>
+              <div class="pricing-item-row" data-search="kids partywear dry wash">
+                <span class="pricing-item-name">• Kids partywear dry wash</span>
+                <span class="pricing-item-price">₹100</span>
+              </div>
+              <div class="pricing-item-row" data-search="kids patulanga chunni blouse dry wash">
+                <span class="pricing-item-name">• Kids patulanga,chunni ,blouse dry wash</span>
+                <span class="pricing-item-price">₹150</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
+        <!-- Right Column: Men's Wear -->
+        <div class="pricing-category-column" id="rightPricingCol">
+          <!-- Men's Wear Card -->
+          <div class="pricing-card-detailed" data-category="mens">
+            <div class="category-header">
+              <h2>Men's Wear</h2>
+            </div>
+            <div class="pricing-items-list">
+              <div class="pricing-item-row" data-search="iron only no wash no starch">
+                <span class="pricing-item-name">• Iron Only (No Wash, No Starch)</span>
+                <span class="pricing-item-price">₹10</span>
+              </div>
+              <div class="pricing-item-row" data-search="steam iron only no wash no starch">
+                <span class="pricing-item-name">• Steam Iron Only (No Wash, No Starch)</span>
+                <span class="pricing-item-price">₹15</span>
+              </div>
+              <div class="pricing-item-row" data-search="cotton kanduva wash starch iron">
+                <span class="pricing-item-name">• Cotton kanduva wash starch iron</span>
+                <span class="pricing-item-price">₹20</span>
+              </div>
+              <div class="pricing-item-row" data-search="silk kanduva">
+                <span class="pricing-item-name">• Silk kanduva</span>
+                <span class="pricing-item-price">₹35</span>
+              </div>
+              <div class="pricing-item-row" data-search="mens long kurta wash starch iron">
+                <span class="pricing-item-name">• Mens long kurta wash+starch+iron</span>
+                <span class="pricing-item-price">₹60</span>
+              </div>
+              <div class="pricing-item-row" data-search="cotton dothi wash starch iron">
+                <span class="pricing-item-name">• Cotton Dothi wash+starch+iron</span>
+                <span class="pricing-item-price">₹50</span>
+              </div>
+              <div class="pricing-item-row" data-search="pattu dothi">
+                <span class="pricing-item-name">• Pattu dothi</span>
+                <span class="pricing-item-price">₹70</span>
+              </div>
+              <div class="pricing-item-row" data-search="shirt wash starch iron">
+                <span class="pricing-item-name">• Shirt Wash + Starch + Iron</span>
+                <span class="pricing-item-price">₹50</span>
+              </div>
+              <div class="pricing-item-row" data-search="tshirt wash iron">
+                <span class="pricing-item-name">• T-Shirt Wash + Iron</span>
+                <span class="pricing-item-price">₹25</span>
+              </div>
+              <div class="pricing-item-row" data-search="pant wash iron">
+                <span class="pricing-item-name">• Pant Wash + Iron</span>
+                <span class="pricing-item-price">₹25</span>
+              </div>
+              <div class="pricing-item-row" data-search="pant wash starch iron">
+                <span class="pricing-item-name">• Pant Wash + Starch + Iron</span>
+                <span class="pricing-item-price">₹40</span>
+              </div>
+              <div class="pricing-item-row" data-search="tshirt shirt dry wash">
+                <span class="pricing-item-name">• T-Shirt / Shirt Dry Wash</span>
+                <span class="pricing-item-price">₹70</span>
+              </div>
+              <div class="pricing-item-row" data-search="sherwani dry wash">
+                <span class="pricing-item-name">• Sherwani Dry Wash</span>
+                <span class="pricing-item-price">₹275</span>
+              </div>
+              <div class="pricing-item-row" data-search="suit set dry wash">
+                <span class="pricing-item-name">• Suit Set Dry Wash</span>
+                <span class="pricing-item-price">₹350</span>
+              </div>
+              <div class="pricing-item-row" data-search="only blazer dry wash">
+                <span class="pricing-item-name">• Only Blazer Dry Wash</span>
+                <span class="pricing-item-price">₹175</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Home Care Card -->
+          <div class="pricing-card-detailed" data-category="home">
+            <div class="category-header">
+              <h2>Home Care</h2>
+            </div>
+            <div class="pricing-items-list">
+              <div class="pricing-item-row" data-search="single bedsheet rolling">
+                <span class="pricing-item-name">• Single Bedsheet + Rolling</span>
+                <span class="pricing-item-price">₹115</span>
+              </div>
+              <div class="pricing-item-row" data-search="double bedsheet rolling">
+                <span class="pricing-item-name">• Double Bedsheet + Rolling</span>
+                <span class="pricing-item-price">₹150</span>
+              </div>
+              <div class="pricing-item-row" data-search="blanket dry wash">
+                <span class="pricing-item-name">• Blanket Dry Wash</span>
+                <span class="pricing-item-price">₹150</span>
+              </div>
+              <div class="pricing-item-row" data-search="curtains dry wash">
+                <span class="pricing-item-name">• Curtains Dry Wash</span>
+                <span class="pricing-item-price">₹115</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- No Results Fallback -->
+        <div id="noResults" class="no-results-card" style="display: none;">
+          <p>🔍 No items match your search. Try searching for something else!</p>
+        </div>
+      </div>
     </div>
   </section>
 </main>
@@ -267,7 +468,7 @@
     <div class="footer-col">
       <h4>Contact</h4>
       <p><a href="mailto:monica@battalu.com">monica@battalu.com</a></p>
-      <p><a href="tel:+919494078423">+91 94940 78423</a></p>
+      <p><a href="https://wa.me/919494078423" target="_blank" rel="noopener">+91 94940 78423</a></p>
       <p>Vizag, Andhra Pradesh, India</p>
     </div>
 
@@ -287,6 +488,32 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.pricing-tab-btn');
+    const categories = document.querySelectorAll('.pricing-card-detailed');
+
+    function filterItems(currentCategory) {
+      categories.forEach(cat => {
+        const catName = cat.getAttribute('data-category');
+        if (currentCategory === 'all' || currentCategory === catName) {
+          cat.style.display = 'block';
+        } else {
+          cat.style.display = 'none';
+        }
+      });
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const currentCategory = tab.getAttribute('data-category');
+        filterItems(currentCategory);
+      });
+    });
+  });
+</script>
 </body>
 </html>
 
