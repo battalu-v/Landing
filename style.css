@@ -247,6 +247,50 @@ h1, h2, h3 {
   justify-content: center;
 }
 
+/* HERO TRUST */
+
+.hero-trust-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin-top:10px;
+}
+
+.trust-card{
+    background:#fff;
+    border:1px solid var(--border-soft);
+    border-radius:18px;
+    padding:18px 12px;
+    text-align:center;
+    box-shadow:var(--shadow-sm);
+    transition:.25s;
+}
+
+.trust-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-md);
+}
+
+.trust-icon{
+    font-size:22px;
+    display:block;
+    margin-bottom:8px;
+}
+
+.trust-card strong{
+    display:block;
+    font-size:1.35rem;
+    color:var(--green-900);
+    font-weight:800;
+}
+
+.trust-card span:last-child{
+    display:block;
+    font-size:.85rem;
+    color:var(--text-muted);
+    margin-top:6px;
+}
+
 .blob {
   position: absolute;
   width: 440px;
@@ -630,6 +674,7 @@ h1, h2, h3 {
   .hero-content h1 { font-size: 2.5rem; }
   .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-cta { justify-content: center; }
+  .hero-trust-grid{ grid-template-columns:repeat(2,1fr); }
   .hero-stats { justify-content: center; }
   .hero-visual { order: -1; margin-bottom: 20px; }
   .machine-illustration { max-width: 280px; }
@@ -677,6 +722,14 @@ h1, h2, h3 {
   .services-grid { grid-template-columns: 1fr; }
   .hero-stats { gap: 24px; flex-wrap: wrap; }
   .footer-inner { grid-template-columns: 1fr; }
+  .hero-trust-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.trust-card{
+    padding:14px 10px;
+}
 }
 /* ============== PRICING ============== */
 .pricing {
