@@ -39,11 +39,11 @@ const catalogPrices = {
     { name: "T-Shirt / Shirt Dry Wash", price: 70 },
     { name: "Pant Wash + Iron", price: 25 },
     { name: "Pant Wash + Starch + Iron", price: 40 },
-    { name: "Cotton kanduva wash starch iron", price: 20 },
-    { name: "Silk kanduva", price: 35 },
-    { name: "Cotton Dothi wash+starch+iron", price: 50 },
-    { name: "Pattu dothi", price: 70 },
-    { name: "Mens long kurta wash+starch+iron", price: 60 },
+    { name: "Cotton Kanduva Wash + Starch + Iron", price: 20 },
+    { name: "Silk Kanduva", price: 35 },
+    { name: "Cotton Dothi Wash + Starch + Iron", price: 50 },
+    { name: "Pattu Dothi", price: 70 },
+    { name: "Mens Long Kurta Wash + Starch + Iron", price: 60 },
     { name: "Sherwani Dry Wash", price: 275 },
     { name: "Only Blazer Dry Wash", price: 175 },
     { name: "Suit Set Dry Wash", price: 350 }
@@ -53,10 +53,10 @@ const catalogPrices = {
   // KIDS WEAR
   // ----------------------------------------
   "kids": [
-    { name: "Kids wear Iron", price: 8 },
-    { name: "Kids wear steam iron", price: 12 },
-    { name: "Kids partywear dry wash", price: 100 },
-    { name: "Kids patulanga,chunni ,blouse dry wash", price: 150 }
+    { name: "Kids Wear Iron", price: 8 },
+    { name: "Kids Wear Steam Iron", price: 12 },
+    { name: "Kids Partywear Dry Wash", price: 100 },
+    { name: "Kids Patulanga, Chunni, Blouse Dry Wash", price: 150 }
   ],
 
   // ----------------------------------------
@@ -65,8 +65,9 @@ const catalogPrices = {
   "home": [
     { name: "Single Bedsheet + Rolling", price: 115 },
     { name: "Double Bedsheet + Rolling", price: 150 },
-    { name: "Curtains Dry Wash", price: 115 },
-    { name: "Blanket Dry Wash", price: 150 }
+    { name: "Blanket Dry Wash", price: 150 },
+    { name: "Sheer Curtains (10×5 ft) Dry Wash", price: 150 },
+    { name: "Blackout Curtains (10×5 ft) Dry Wash", price: 300 }
   ]
 };
 
