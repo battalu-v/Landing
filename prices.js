@@ -66,8 +66,8 @@ const catalogPrices = {
     { name: "Single Bedsheet + Covers Rolling", price: 115 },
     { name: "Double Bedsheet + Covers Rolling", price: 150 },
     { name: "Blanket Dry Wash", price: 150 },
-    { name: "Sheer Curtains Dry Wash (Per Sqft)", price: 150 },
-    { name: "Blackout Curtains Dry Wash (Per Sqft)", price: 300 },
+    { name: "Sheer Curtains Dry Wash (Per Sqft)", price: 5 },
+    { name: "Blackout Curtains Dry Wash (Per Sqft)", price: 10 },
     { name: "Quilt Single Dry Wash", price: 150 },
     { name: "Quilt Double Dry Wash", price: 290 }
   ]
